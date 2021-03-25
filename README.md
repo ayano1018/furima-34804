@@ -29,7 +29,7 @@ Things you may want to cover:
 | --------------- | ------ | ----------- |
 | nick_name       | string | null: false |
 | email           | string | null: false, unique: true |
-| encrypted_password        | encrypted_password | null: false |
+| encrypted_password | string  | null: false |
 | last_name       | string | null: false |
 | first_name      | string | null: false |
 | last_name_kana  | string | null: false |
@@ -42,7 +42,7 @@ Things you may want to cover:
 
 
 
-## address  テーブル
+## addresses  テーブル
 
 | Column          | Type   | Options     |
 | --------------- | ------ | ----------- |
@@ -55,26 +55,26 @@ Things you may want to cover:
 | order_history   | references | null: false, foreign_key: true |
 
 ### Association
-- belong_to :oder_history dependent: :destroy
-- belong_to :order_history
+- belong_to :oder_history 
 
-## product テーブル
+
+## products テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | name               | string | null: false |
 | description        | text   | null: false |
 | category_id        | integer | null: false |
-| condition          | integer | null: false |
-| shipping_cost      | integer | null: false |
+| condition_id       | integer | null: false |
+| shipping_cost_id   | integer | null: false |
 | region_id          | integer | null: false |
 | shipping_day_id    | integer | null: false |
 | price              | integer | null: false |
-| user               | references | null: false, foreign_key: true｜｜ 
+| user               | references | null: false, foreign_key: true｜
 
 
 ### Association
-- belongs_to :user dependent: :destroy
+- belongs_to :user 
 - has_one :order_history dependent: :destroy
 
 
@@ -86,8 +86,8 @@ Things you may want to cover:
 | user         | references | null: false, foreign_key: true |
 
 - has_one :address dependent: :destroy
-- belongs_to :product dependent: :destroy
-- belongs_to :user dependent: :destroy
+- belongs_to :product 
+- belongs_to :user 
 
 
 
