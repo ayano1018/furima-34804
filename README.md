@@ -38,7 +38,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :products dependent: :destroy
-- has_one :address dependent: :destroy
 - has_many :order_histories dependent: :destroy
 
 
@@ -56,7 +55,6 @@ Things you may want to cover:
 | order_history   | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user dependent: :destroy
 - belong_to :oder_history dependent: :destroy
 - belong_to :order_history
 
@@ -72,7 +70,7 @@ Things you may want to cover:
 | region_id          | integer | null: false |
 | shipping_day_id    | integer | null: false |
 | price              | integer | null: false |
-| user               | references | null: false, foreign_key: true｜ 
+| user               | references | null: false, foreign_key: true｜｜ 
 
 
 ### Association
