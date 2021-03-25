@@ -62,17 +62,17 @@ Things you may want to cover:
 
 ## product テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| name            | string | null: false |
-| description     | text   | null: false |
-| category        | string | null: false |
-| condition       | integer | null: false |
-| shipping_cost   | integer | null: false |
-| region          | integer | null: false |
-| shipping_day_id   | integer | null: false |
-| price           | integer | null: false |
-| user            | references | null: false, foreign_key: true 
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| description        | text   | null: false |
+| category_id        | integer | null: false |
+| condition          | integer | null: false |
+| shipping_cost      | integer | null: false |
+| region_id          | integer | null: false |
+| shipping_day_id    | integer | null: false |
+| price              | integer | null: false |
+| user               | references | null: false, foreign_key: true 
 
 
 ### Association
