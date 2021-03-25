@@ -29,7 +29,7 @@ Things you may want to cover:
 | --------------- | ------ | ----------- |
 | nick_name       | string | null: false |
 | email           | string | null: false, unique: true |
-| password        | encrypted_password | null: false |
+| encrypted_password        | encrypted_password | null: false |
 | last_name       | string | null: false |
 | first_name      | string | null: false |
 | last_name_kana  | string | null: false |
@@ -39,7 +39,7 @@ Things you may want to cover:
 ### Association
 - has_many :products dependent: :destroy
 - has_one :address dependent: :destroy
-- has_many :order_history dependent: :destroy
+- has_many :order_histories dependent: :destroy
 
 
 
@@ -48,12 +48,12 @@ Things you may want to cover:
 | Column          | Type   | Options     |
 | --------------- | ------ | ----------- |
 | post_code       | string | null: false |
-| region          | string | null: false |
+| region_id       | integer | null: false |
 | city            | string | null: false |
 | address_number  | string | null: false |
 | building_name   | string |             |
 | phone_number    | string | null: false |
-| user_id         | integer | null: false |
+| order_history   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user dependent: :destroy
@@ -70,24 +70,26 @@ Things you may want to cover:
 | condition       | integer | null: false |
 | shipping_cost   | integer | null: false |
 | region          | integer | null: false |
-| shipping_days   | integer | null: false |
+| shipping_day_id   | integer | null: false |
 | price           | integer | null: false |
+| user            | references | null: false, foreign_key: true 
 
 
 ### Association
 - belongs_to :user dependent: :destroy
 - has_one :order_history dependent: :destroy
-- has_one :address dependent: :destroy
+
 
 ## order_history テーブル
 
 | Column          | Type   | Options     |
 | --------------- | ------ | ----------- |
-| product_id      | references | null: false, foreign_key: true |
-| user_id         | references | null: false, foreign_key: true |
+| product      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 
 - has_one :address dependent: :destroy
 - belongs_to :product dependent: :destroy
+- belongs_to :user dependent: :destroy
 
 
 
