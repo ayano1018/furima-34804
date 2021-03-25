@@ -86,7 +86,7 @@ Things you may want to cover:
 | product_id      | references | null: false, foreign_key: true |
 | user_id         | references | null: false, foreign_key: true |
 
-- has_many :address dependent: :destroy
+- has_one :address dependent: :destroy
 - belongs_to :product dependent: :destroy
 
 
