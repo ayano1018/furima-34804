@@ -53,31 +53,31 @@ RSpec.describe User, type: :model do
     it 'password：5文字以下は登録できない' do
       @user.password = '123ab', @user.password_confirmation = '123ab'
       @user.valid?
-      expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
+      expect(@user.errors.full_messages).to include "Password  は英字と数字の両方を含めて設定してください"
     end
 
     it 'password：半角英語のみは登録できない' do
       @user.password = 'aaaaaa', @user.password_confirmation = 'aaaaaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
+      expect(@user.errors.full_messages).to include "Password  は英字と数字の両方を含めて設定してください"
 
     end
 
-    endit 'password：数字のみは登録できない' do
+    it 'password：数字のみは登録できない' do
       @user.password = '111111', @user.password_confirmation = '111111'
       @user.valid?
-      expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
+      expect(@user.errors.full_messages).to include "Password  は英字と数字の両方を含めて設定してください"
 
     end
 
-    endit 'password：全角英数混合は登録できない' do
+    it 'password：全角英数混合は登録できない' do
       @user.password = '１２３Ａｂｃ', @user.password_confirmation = '１２３Ａｂｃ'
       @user.valid?
-      expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
+      expect(@user.errors.full_messages).to include "Password  は英字と数字の両方を含めて設定してください"
 
     end
 
-    endit 'passwordとpassword_confirmationが一致しない場合、登録できない' do
+    it 'passwordとpassword_confirmationが一致しない場合、登録できない' do
       @user.password = 'aaa111', @user.password_confirmation = 'aaa112'
       @user.valid?
       expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
