@@ -5,9 +5,6 @@ require 'rails_helper'
 # end
 
 
- 
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
@@ -36,7 +33,7 @@ RSpec.describe User, type: :model do
     it 'passwordとpassword_confirmationが空では登録できない' do
       @user.password_confirmation = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include "Password can't be blank"
+      expect(@user.errors.full_messages).to include "Password confirmation は英字と数字の両方を含めて設定してください"
     end
 
     it 'last_nameが空では登録できない' do
@@ -70,13 +67,8 @@ RSpec.describe User, type: :model do
     end
 
     context '新規登録できるとき' do
-      it 'nicknameが6文字以下であれば登録できる' do
-        @user.nickname = 'aaaaaa'
+      it 'nicknameとemail、password他全ての項目が存在すれば登録できること' do
         expect(@user).to be_valid
-      end
-      it 'password_confirmationが6文字以上であれば登録できる' do
-          @user.password_confirmation = '000000'
-          expect(@user).to be_valid
       end
     end
   
