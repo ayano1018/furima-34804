@@ -17,7 +17,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
  validates :shipping_cost_id, presence: true
  validates :region_id,        presence: true
  validates :shipping_day_id,  presence: true
- validates :price,            presence: true,  numericality: [greater_than: 300, less_than: 10000000 ]
+ validates :price,            presence: true,  numericality: {greater_than: 300, less_than: 10000000} 
 
 
 

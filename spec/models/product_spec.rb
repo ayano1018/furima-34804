@@ -67,10 +67,35 @@ RSpec.describe Product, type: :model do
 
 
        it 'priceが300以下であれば登録できないこと' do
-        @product.price = ''
+        @product.price = 299
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Price can't be blank")
+        expect(@product.errors.full_messages).to include ("Price must be greater than 300")
        end
+
+       it 'price全角文字は登録できないこと' do
+        @product.price = '１１１'
+        @product.valid?
+        expect(@product.errors.full_messages).to include ("Price is not a number")
+       end
+
+       it 'priceが半角英数混合では登録できない' do
+        @product.price = '1a1a'
+        @product.valid?
+        expect(@product.errors.full_messages).to include ("Price is not a number")
+       end
+
+       it 'priceが半角英語だけでは登録できない' do
+        @product.price = 'aaa'
+        @product.valid?
+        expect(@product.errors.full_messages).to include ("Price is not a number")
+       end
+       
+       it 'priceが10,000,000以上では登録できないこと' do
+        @product.price = 10000000
+        @product.valid?
+        expect(@product.errors.full_messages).to include ("Price must be less than 10000000")
+       end
+
    end
  end
 end
