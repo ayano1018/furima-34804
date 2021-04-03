@@ -1,4 +1,4 @@
-class Item_condition < ActiveHash::Base
+class ItemCondition < ActiveHash::Base
 self.data = [
     {id: 1, status: "新品、未使用"},
     {id: 2, status: "未使用品に近い"},
@@ -8,5 +8,5 @@ self.data = [
     {id: 6, status: "全体的に状態が悪い"}
 ]
 include ActiveHash::Associations
-has_many :product
+has_many :products
 end
