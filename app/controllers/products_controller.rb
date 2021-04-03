@@ -6,17 +6,14 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    #@product.product_images.new
+    @product = Product.new 
   end
 
   def create
     @product = Product.new(product_params)
-    # @product.user = current_user
     if @product.save
       redirect_to root_path
     else
-      @product.errors.full_messages
       render :new
     end
   end
