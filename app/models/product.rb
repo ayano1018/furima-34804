@@ -11,14 +11,14 @@ extend ActiveHash::Associations::ActiveRecordExtensions
  belongs_to_active_hash  :shipping_day
 
  with_options presence: true do
-  validates :name,             presence: true
-  validates :description,      presence: true
-  validates :category_id,      presence: true
-  validates :condition_id,     presence: true
-  validates :shipping_cost_id, presence: true
-  validates :region_id,        presence: true
-  validates :shipping_day_id,  presence: true
-  validates :price,            presence: true,  numericality: {greater_than: 300, less_than: 10000000} 
+  validates :name,             
+  validates :description,      
+  validates :category_id,      
+  validates :condition_id,     
+  validates :shipping_cost_id, 
+  validates :region_id,        
+  validates :shipping_day_id,  
+  validates :price,            numericality: {greater_than: 300, less_than: 10000000} 
  end
 
 
