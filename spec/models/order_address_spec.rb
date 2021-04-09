@@ -15,6 +15,12 @@ RSpec.describe OrderAddress, type: :model do
      it '住所などtoken全ての項目が存在すれば登録できること' do
          expect(@order_address).to be_valid
       end
+      it '建物名が空欄でも登録できること' do
+        @order_address.building_name = ''
+        @order_address.valid?
+        expect(@order_address).to be_valid
+     end
+
     end
 
 

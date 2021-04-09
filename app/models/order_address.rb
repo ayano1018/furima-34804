@@ -13,7 +13,6 @@ class OrderAddress
     validates :user_id 
     validates :token 
   end
-    # validates :building_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー0-9-]+\z/, message: '全角文字を使用してください' } 
 
   def save
     order = Order.create(user_id: user_id, product_id: product_id)
