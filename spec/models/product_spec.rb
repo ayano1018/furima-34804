@@ -15,6 +15,7 @@ RSpec.describe Product, type: :model do
     end
 
     context '内容に問題がある場合' do
+      
 
       it 'imageが空だと登録できないこと' do
         @product.image = nil
