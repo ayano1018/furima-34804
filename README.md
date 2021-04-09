@@ -78,7 +78,7 @@ Things you may want to cover:
 - has_one :order_history dependent: :destroy
 
 
-## order_history テーブル
+## order テーブル
 
 | Column          | Type   | Options     |
 | --------------- | ------ | ----------- |
