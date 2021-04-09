@@ -20,7 +20,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address).to be_valid
      end
-
     end
 
 
@@ -79,12 +78,20 @@ RSpec.describe OrderAddress, type: :model do
      it 'phone_numberが数値のみ出ないと登録できないこと' do
       @order_address.phone_number = 'aaaaaaaaaaa'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include ("Phone number 11桁以下で入力してください")
+      expect(@order_address.errors.full_messages).to include ("Phone number 11桁以下で入力してください") 
+     end
       
+     it 'user_idが空だと登録できないこと' do
+      @order_address.user_id = ''
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include ("User can't be blank")
      end
 
-
-
+     it 'product_idが空だと登録できないこと' do
+      @order_address.product_id = ''
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include ("Product can't be blank")
+     end
     end
  end
 end
