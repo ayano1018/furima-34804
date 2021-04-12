@@ -20,7 +20,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
   validates :shipping_cost_id 
   validates :region_id        
   validates :shipping_day_id  
-  validates :price,            numericality: {greater_than: 300, less_than: 10000000}
+  validates :price,            numericality: {greater_than: 299, less_than: 9999999}
  end
  
 
